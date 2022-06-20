@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" 
+            content="Andrea Portfolio">
+
+        <title>🌸 Andrea Brenzink Portfolio 🌸</title>
+        <link rel = "stylesheet"
+              type = "text/css"
+              href = "../css/small.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1"/>
+        <template>
+
+        </template>
+    </head>
+
+    <body>
+        <nav class="mainNav">
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../notes.html">Thoughts</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div class="notes">
+                <h2>Week 07 - Functions!</h2>
+                <br>
+                <h3>Higher Order Elements</h3>
+                <p>In JavaScript, functions are first-class objects, which means 
+                    they can be passed around in the same way as every other value.
+                    They can even have they own porperties and methods. All functions 
+                    have a <b>lenght</b>, representing the number of parameters this function
+                    accepts.
+                    <br>
+                    <div class="code">
+                    <code>function square(x){<br>
+                        &nbsp&nbsp&nbspreturn x * x; <br>
+                        }<br><br>
+                        square.length<br>
+                        >> 1</code>
+                    </div>
+                    The <code>.call(obj)</code> function defines a this inside a function to an object that
+                    is provided as the first argument.
+                    <div class="code">
+                    <code>const lara = { name: 'Lara' };<br>
+                            const lili = { name: 'Lili' };<br><br>
+                        
+                        sayHello.call(lara);<br>
+                        << 'Hello, my name is Lara'<br><br>
+                        
+                        sayHello.call(lili);<br>
+                        << 'Hello, my name is Lili'</code>
+                    </div>
+                    If the function that’s called requires any parameters, these need to be provided 
+                    as arguments after the first argument, which is always the value of this.
+                    The apply() method works in the same way, except the arguments of the function 
+                    are provided as an array, even if there is only one argument:
+                    <div class="code">
+                        <code>square.apply(null, [4])<br>
+                            << 16</code>
+                    </div><br>
+
+                </p>
+                <h3>Memoization</h3>
+                <p>A function that takes too much time to process and return a value 
+                    can have a cache property. It saves the value so that we will not 
+                    have to compute it again if the argument used is the same. 
+                    <div class="code">
+                        <code>function square(x){<br>
+                            &nbsp&nbspsquare.cache = square.cache || {};<br>
+                            &nbsp&nbspif (!square.cache[x]) {<br>
+                            &nbsp&nbsp&nbsp&nbsp&nbspsquare.cache[x] = x*x;<br>
+                            &nbsp&nbsp}<br>
+                            &nbsp&nbspreturn square.cache[x]<br>
+                        }</code>
+                    </div></p>
+                <h3>IIFE - Immediately Invoked Function Expressions</h3>
+                <p>Those special functions are the anonymous functions that
+                    are invoked as soon as they are defined. All we have to is to place the
+                    function inside parenthesis and add another pair of them at the end, as if
+                    we were calling the function!
+                    <div class="code">
+                        <code>(function(){<br>
+                            &nbsp&nbspconst temp = 'World';<br>
+                            &nbsp&nbspconsole.log(`Hello ${temp}`);<br>
+                            })();<br><br>
+                            << 'Hello World'<br></code>
+                    </div>
+                    A good application of IIFE is to make use of <b>temporary variables</b>. 
+                    Those will exist just while the function is running, and we will 
+                    get rid of them after the execution.
+                    It is also safer to use <b>stric mode inside IIFE</b>. Some conflict may happend
+                    if you’re using other people’s code, there’s no guarantee that they’ve
+                    coded in strict mode.
+                </p>
+                <h3>Functions can Define and Rewrite Themselves! :o</h3>
+                <p>A function is able to not only call itself, but define itself, and even
+                     redefine itself. This is done by assigning an anonymous function to 
+                     a variable that has the same name as the function.
+                     <div class="code">
+                        <code>function party(){<br>
+                            &nbsp&nbspconsole.log('Wow this is amazing!');<br>
+                            &nbsp&nbspparty = function(){<br>
+                            &nbsp&nbsp&nbsp&nbspconsole.log('Been there, got the T-Shirt');<br>
+                            &nbsp&nbsp}<br>
+                        }</code>
+                    </div>
+                    This logs a message in the console, then redefines itself to log a 
+                    different message in the console. When the function has been called 
+                    once, it will be as if it was defined like this:
+                    <div class="code">
+                        <code>function party(){<br>
+                            &nbsp&nbspconsole.log('Been there, got the T-Shirt');<br>
+                        }</code>
+                    </div>
+                    Every time the function is called after the first time, it will log 
+                    the message 'Been there, got the T-Shirt'.
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <div id="social">
+
+            </div>
+            Andrea Brenzink
+        </footer>
+    </body>
+</html>
