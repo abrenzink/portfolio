@@ -132,6 +132,29 @@
                             &nbsp&nbsp&nbspcache: 'no-cache'<br>
                         });</code>
                     </div><br>
+                    For the Response object, the first argument is the data that is to be returned 
+                    (for example a text stream, file or JSON data). The second argument 
+                    is an object that can be used to provide values for any of the properties listed.
+                    For the Requast object, the url property is the first argument, and is required. 
+                    The second argument is an object made up of any of the other properties listed above.
+                    <br><br>
+                    Once the Request object is assigned to a variable, it can then be used as the 
+                    parameter of the fetch() method.
+                </p>
+                <h3>Headers Interface</h3>
+                <p>HTTP headers are <b>objects</b> used to pass on additional information about a request 
+                    or response, for instance, the file-type of the resource, cookie information, 
+                    authentication information and when the resource was last modified. <b>They can be passed as
+                    parameters to create Request objects.</b>  They include the following properties and methods:
+                    <ul>
+                        <li><code>has()</code></li>
+                        <li><code>get()</code></li>
+                        <li><code>set()</code></li>
+                        <li><code>append()</code></li>
+                        <li><code>delete()</code></li>
+                        <li><code>keys(), values(), entries()</code> - Iterators that can be used to iterate 
+                            over the headers key, values or entries (key and value pairs).</li>
+                    </ul>
                 </p>
             </div>
         </main>
