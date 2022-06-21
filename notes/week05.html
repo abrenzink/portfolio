@@ -109,7 +109,29 @@
                                 .then( response => response.json() ); <br>
                                 .then( text => console.log(Object.entries(data))</code>
                         </div><br>
+                        <div class="code" style="max-width: 400px">
+                            <code>fetch(url)<br>
+                                .then( response => response.blob() ); <br>
+                                .then( text => console.log(blob.type) )</code>
+                        </div><br>
                     </ul>
+                    <br> We can even create Responses and Request objects by ourselves:
+                    <div class="code">
+                        <code>const response = new Response( 'Hello!', {<br>
+                            &nbsp&nbsp&nbspok: true,<br>
+                            &nbsp&nbsp&nbspstatus: 200,<br>
+                            &nbsp&nbsp&nbspstatusText: 'OK',<br>
+                            &nbsp&nbsp&nbsptype: 'cors',<br>
+                            &nbsp&nbsp&nbspurl: '/api'<br>
+                        });
+                        <br><br>
+                        const request = new Request('https://example.com/data', {<br>
+                            &nbsp&nbsp&nbspmethod: 'GET',<br>
+                            &nbsp&nbsp&nbspmode: 'cors',<br>
+                            &nbsp&nbsp&nbspredirect: 'follow',<br>
+                            &nbsp&nbsp&nbspcache: 'no-cache'<br>
+                        });</code>
+                    </div><br>
                 </p>
             </div>
         </main>
