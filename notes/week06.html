@@ -120,13 +120,54 @@
                 </ul>
                 <h3>Form Controls</h3>
                 <ul>
-                    <li><code>&ltinput&gt</code> - fields, including text, passwords, check boxes, radio buttons, and file uploads</li>
-                    <li><code>&ltselect&gt</code> - wmenus for drop-down lists of options</li>
+                    <li><code>&ltinput&gt</code> - fields, including text, passwords, check boxes, 
+                        radio buttons, and file uploads. There are many types of them.</li>
+                    <li><code>&ltselect&gt</code> - menus for drop-down lists of options</li>
                     <li><code>&lttextarea&gt</code> - elements for longer text entry</li>
                     <li><code>&ltbutton&gt</code> - elements for submitting and resetting forms</li>
                 </ul>
-
+                <h3>Input Attributes</h3>
+                <ul>
+                    <li><code>input.autofocus</code> - give focus to this element when a page loads.</li>
+                    <li><code>input.placeholder</code> - will insert the value provided in the input field until the user enters some text.</li>
+                    <li><code>input.maxlenght</code> - attribute will limit the number of characters that can be entered in the field to the value given.</li>
+                    <li><code>&ltbutton&gt</code> - elements for submitting and resetting forms</li>
+                </ul>
+                <h3>Input Fields</h3>
+                <p>The initial value of this field can be set in the HTML using the value attribute.</p>
+                <ul>
+                    <li>Text input fields - used for entering a short piece of text, such as a username. </li>
+                    <li>Password input fields - used to enter passwords or secret information. </li>
+                    <li>Checkbox input fields - used to select different options that can be checked 
+                        (true) or left unchecked (false). The user can select more than one checkbox from a list. </li>
+                    <li>Radio button input fields - allow users to check an option as true, 
+                        but they provide an exclusive choice of options, so only one option can be selected. </li>
+                    <li>Hidden input fields - are not displayed by the browser, but have a 'value' 
+                        attribute that can contain information that is submitted with the form. 
+                        They are often used to send information such as settings or information 
+                        that the user has already provided. </li>
+                    <li>File input fields - used to upload files, and most browsers will provide a browse
+                         button or similar that lets users select a file from their file system. </li>
+                    <li>Other input fields - such as number, tel and color. As browsers start to support these, 
+                        they will implement different user-interface elements depending on the input type. 
+                        They will also validate automatically, so an email input field will show an error 
+                        message if there’s no valid email address. </li>
+                </ul>
+                <h3>Form Validation</h3>
+                <p>The process of checking whether a user has entered the information into a form correctly.</p>
+                <ul>
+                    <li>A required field is completed</li>
+                    <li>An email address is valid</li>
+                    <li>A number is entered when numerical data is required</li>
+                    <li>A password is at least a minimum number of characters</li>
+                </ul><br>
+                <p>It’s possible for a user to modify the JavaScript code and bypass the 
+                    validation rules. It's also very easy to bypass the front-end completely 
+                    and send arbitrary data to the application's backend. For these reasons, 
+                    JavaScript validation should be used to enhance the user experience when 
+                    filling in a form by giving feedback about any errors before it’s submitted.</p>
                 <br>
+
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/GWJhE7Licjs" 
                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
                 clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
