@@ -10,6 +10,16 @@ main{
     margin: 20px auto;
 }
 
+nav ul li{
+    display:inline-block;
+    vertical-align: top;
+    color:rgb(243, 221, 255);
+}
+
+nav ul li a:visited{
+    color: rgb(243, 221, 255);
+}
+
 h2{
     padding: 7px 0px;
     border-bottom-style: solid;
