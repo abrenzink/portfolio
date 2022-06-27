@@ -10,35 +10,22 @@
         <link rel = "stylesheet"
               type = "text/css"
               href = "./css/small.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1"/>
-        <template>
-
-        </template>
+        <script src="js/router.js"></script>
     </head>
 
     <body>
-        <nav class="mainNav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="notes.html">Thoughts</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">About</a></li>
-            </ul>
-        </nav>
+        <header id="my-header"></header>
         <main>
             <h2>WDD 330: Notes! :D</h2>
-            <ul class="pagesList">
-                <li>Week 05: <a href="./notes/week05.html">AJAX</a></li>
-                <li>Week 06: <a href="./notes/week06.html">Forms</a></li>
-                <li>Week 07: <a href="./notes/week07.html">More about functions</a></li>
-                <li>Week 10: <a href="#">🌸</a></li>
+            <ul id="pagesList">
+                <li><a href="/ajax" onclick="route()" class="noteOption" id="ajax">AJAX</a></li>
+                <li><a href="/forms" onclick="route()" class="noteOption" id="forms">Forms</a></li>
+                <li><a href="/func" onclick="route()" class="noteOption" id="func">Functions</a></li>
+                <li><a class="noteOption">🌸</a></li>
             </ul>
+            <div id="notes-div"></div>
         </main>
-        <footer>
-            <div id="social">
-
-            </div>
-            Andrea Brenzink
-        </footer>
+       
+        <footer id="my-footer"></footer>
     </body>
 </html>

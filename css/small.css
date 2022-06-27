@@ -43,10 +43,30 @@ b{background-color: rgb(246, 233, 253);}
     border-radius: 5px;
 }
 
-.mainNav{
+#pagesList{margin: 0; padding: 10px ;}
+
+#mainNav{
     background-color: blueviolet;
 }
 
-.pagesList li {
+#pagesList {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-around;
+   border-bottom-style: solid;
+   border-bottom-color: rgb(43, 3, 78);
+}
+
+#pagesList li {
+    list-style: none;
+    background-color: blueviolet;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+    min-width: 30px;
+    min-height: 30px;
+    line-height: 30px;
+    border-radius: 15px;
+    text-align: center;
+    padding: 7px;
     margin: 5px;
 }

@@ -1,0 +1,148 @@
+
+<div id="notes">
+    <h2>Forms</h2> 
+    <br>   
+    <p>Forms are a very common <b>method of interacting with a web page</b>. Most of us use forms every
+            day to log in to our favorite sites. Forms are made up of a <code> &ltform&gt </code> element 
+            that contains form controls such as input fields, select menus and buttons. 
+            These input fields can be populated with information that is processed once 
+            the form has been submitted. Traditionally, when a form was submitted, it would 
+            be sent to a server where the information would be processed using a 'back end' 
+            language such as PHP or Ruby. It’s possible to process the information in a 
+            form on the 'front end' before it is sent to the server using JavaScript.
+            </p>
+            <br>
+    <p>Each form control has an initial value that can be specified in the HTML code. 
+            This value can be changed by a user entering information or interacting with the 
+            form’s interface (such as using a slider to increase or decrease a value). The value 
+            can also be changed dynamically using JavaScript.</p>
+    <br>
+    <div class="code">
+        <code>&lt!doctype html&gt <br>
+            &lthtml lang='en'&gt<br>
+            &nbsp&nbsp&nbsp&lthead&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&ltmeta charset='utf-8'&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&lttitle>Search&lt/title&gt<br>
+            &nbsp&nbsp&nbsp&lt/head&gt<br>
+            &nbsp&nbsp&nbsp&ltbody&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&ltform name='search' action='/search'&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltinput name='searchInput'&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&ltbutton type='submit'>Search&lt/button&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&lt/form&gt<br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&ltscript src='main.js'>&lt/script&gt<br>
+            &nbsp&nbsp&nbsp&lt/body&gt<br>
+            &lt/html&gt</code>
+    </div><br>
+    <p>The action attribute is the URL that the form will be submitted to so it can be
+            processed on the server side. The input field also has a name attribute of 
+            searchInput that is used to access the information inside it.</p>
+    <h3>Accessing Form Elements</h3>
+    <br>
+    <p>The DOM had a useful property called <code>document.forms</code> that returns 
+        an HTML collection of all the forms in the document <b>in an array</b> the order they appear 
+        in the markup.
+    </p>
+    <div class="code">
+        <code>const form = document.forms[0];<br>
+            const form = document.forms.search;<span style="color:rgb(132, 112, 151)">  //referencing 
+                by the form's name. Be carefull, however, 
+                to not use one of the form's properties name.</span><br>
+                const form = document.forms['search'];<span style="color:rgb(132, 112, 151)"> //this way
+                is safer.</span></code>
+    </div>
+    <br>
+    <p> A form object also has a method called elements that returns an HTML collection 
+        of all the elements contained in the form. In this case the form contains 
+        two controls: an input element and a button element:</p>
+    <div class="code">
+        <code>const [input,button] = form.elements();</code>
+    </div><br>
+    <h3>Form Properties and Methods</h3>
+    <ul>
+        <li><code>form.submit()</code> - will submit the form automatically (submitting a 
+            form using this method won’t trigger the form submit event).</li>
+        <li><code>form.reset()</code> - will reset all the form controls 
+            back to their initial values specified in the HTML. (not so good idea).</li>
+        <li><code>form.action</code> - property that can be used to set the action 
+            attribute of a form, so it’s sent to a different URL to be processed on the server.</li>
+    </ul>
+    <h3>Form Events</h3>
+    <ul>
+        <li><code>focus</code> - occurs when an element is focused on. 
+            In the case of an <code>&ltinput&gt</code> element, 
+            this is when the cursor is placed inside the element 
+            (either by clicking or tapping on it or navigating to it using the keyboard).</li>
+        <li><code>blur</code> - occurs when the user moves the focus away from the form element.</li>
+        <li><code>change</code> - occurs when the user moves the focus away from the form
+                element after changing it. So if a user clicks in an input field 
+                and makes no changes, and then clicks elsewhere, the <code>change</code> event won’t fire, 
+                but the <code>blur</code> event will.</li>
+        <li><code>submit</code> - the most important form event is the submit event, 
+            occurring when the form is submitted. Usually this will send the content 
+            of the form to the server to be processed, but we can use JavaScript to intercept
+                the form before it’s sent by adding a <code>submit</code> event listener.
+            <div class="code" style="max-width: 400px">
+            <code>const form = document.forms['search'];<br>
+                form.addEventListener ('submit', search, false);<br>
+                <br>
+                function search() {<br>
+                    &nbsp&nbsp&nbsp&nbspalert(' Form Submitted');<br>
+                }<br></code>
+            </div><br>
+        </li>
+    </ul>
+    <h3>Form Controls</h3>
+    <ul>
+        <li><code>&ltinput&gt</code> - fields, including text, passwords, check boxes, 
+            radio buttons, and file uploads. There are many types of them.</li>
+        <li><code>&ltselect&gt</code> - menus for drop-down lists of options</li>
+        <li><code>&lttextarea&gt</code> - elements for longer text entry</li>
+        <li><code>&ltbutton&gt</code> - elements for submitting and resetting forms</li>
+    </ul>
+    <h3>Input Attributes</h3>
+    <ul>
+        <li><code>input.autofocus</code> - give focus to this element when a page loads.</li>
+        <li><code>input.placeholder</code> - will insert the value provided in the input field until the user enters some text.</li>
+        <li><code>input.maxlenght</code> - attribute will limit the number of characters that can be entered in the field to the value given.</li>
+        <li><code>&ltbutton&gt</code> - elements for submitting and resetting forms</li>
+    </ul>
+    <h3>Input Fields</h3>
+    <p>The initial value of this field can be set in the HTML using the value attribute.</p>
+    <ul>
+        <li>Text input fields - used for entering a short piece of text, such as a username. </li>
+        <li>Password input fields - used to enter passwords or secret information. </li>
+        <li>Checkbox input fields - used to select different options that can be checked 
+            (true) or left unchecked (false). The user can select more than one checkbox from a list. </li>
+        <li>Radio button input fields - allow users to check an option as true, 
+            but they provide an exclusive choice of options, so only one option can be selected. </li>
+        <li>Hidden input fields - are not displayed by the browser, but have a 'value' 
+            attribute that can contain information that is submitted with the form. 
+            They are often used to send information such as settings or information 
+            that the user has already provided. </li>
+        <li>File input fields - used to upload files, and most browsers will provide a browse
+                button or similar that lets users select a file from their file system. </li>
+        <li>Other input fields - such as number, tel and color. As browsers start to support these, 
+            they will implement different user-interface elements depending on the input type. 
+            They will also validate automatically, so an email input field will show an error 
+            message if there’s no valid email address. </li>
+    </ul>
+    <h3>Form Validation</h3>
+    <p>The process of checking whether a user has entered the information into a form correctly.</p>
+    <ul>
+        <li>A required field is completed</li>
+        <li>An email address is valid</li>
+        <li>A number is entered when numerical data is required</li>
+        <li>A password is at least a minimum number of characters</li>
+    </ul><br>
+    <p>It’s possible for a user to modify the JavaScript code and bypass the 
+        validation rules. It's also very easy to bypass the front-end completely 
+        and send arbitrary data to the application's backend. For these reasons, 
+        JavaScript validation should be used to enhance the user experience when 
+        filling in a form by giving feedback about any errors before it’s submitted.</p>
+    <br>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/GWJhE7Licjs" 
+    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; 
+    clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    
+</div>

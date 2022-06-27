@@ -1,0 +1,130 @@
+<div class="notes">
+    <h2>AJAX</h2>
+    <h3>What is it?</h3>
+    <p>AJAX is a <b>technique</b> that allows us to asynchronously communicate with 
+        a server and dynamically update pages without reloading them! :D</p>
+    <h3>Clients and Servers</h3>
+    <p>The web of computers known as the internet can be separated into 
+        two parts: clients and servers. A client, such as a web browser, 
+        will request a resource (usually a web page) from a server, which 
+        processes the request and sends back a response to the client.
+        JavaScript was originally designed as a client-side scripting 
+        language, meaning that it ran locally in the browser, adding 
+        dynamic features to the web page that was returned from the server.
+    <br><br>
+    <b>Ajax allows JavaScript to request resources from a server on behalf 
+    of the client.</b> The resources requested are usually <b>JSON data or
+            small fragments of text or HTML.</b></p>
+    <h3>APIs</h3>
+    <p>API stands for an <b>Application programming interface. </b>It is a 
+        collection of methods that allow external access to another 
+        service or program. The promise object was standardized as 
+        part of the HTML5 specification, and is already available in most browsers.
+        The Fetch API uses promises to avoid callback hell, using a global <code>fetch()</code>
+        method that only has one mandatory argument: <b>the URL</b> of the 
+        resource you wish to fetch.<br><br>
+        The Fetch API introduced the Response interface that deals with the 
+        returned object when the promise is fulfilled. Response 
+        objects have a number of <b>properties and methods</b> that allow us to 
+        process the response effectively. The ok property will return true 
+        if the status property is between 200 and 299. We need to manually check if 
+        this happens because the promise will only be rejected in the case of a 
+        network error, rather than something like a '404 page not found error', 
+        which is still considered a successful request in terms of the promise.
+        <br><br>
+        We can use an if block to check if the request was successful, 
+        and throw an error if not:
+        <div class="code">
+            <code>const url = 'https:example.com/data'; <br>
+                <br>
+                fetch(url)<br>
+                .then((response) => {<br>
+                    &nbsp&nbspif(response.ok) {<br>
+                        &nbsp&nbsp&nbsp&nbspreturn response;<br>
+                        &nbsp&nbsp}<br>
+                        &nbsp&nbspthrow Error(response.statusText);<br>
+                })<br>
+                .then( response => // do something with response )<br>
+                .catch( error => console.log('There was an error!') )</code>
+        </div><br>
+    </p>
+    <h3>Response Properties and Methods</h3>
+    <p> Some of the Propertis of the Response object are:
+        <ul>
+            <li>url: A string containing the URL of response</li>
+            <li>redirected: A boolean value that specifies if the 
+                response is the result of a redirect</li>
+        </ul>
+        <br> Some useful methods are:
+        <ul>
+            <li><code>text()</code>: takes a stream of text from the response,
+                rand resolves to an object that can be treated as a <b>string</b>
+                    in JavaScript.</li>
+            <div class="code" style="max-width: 400px">
+            <code>fetch(url)<br>
+                .then( response => response.text() ); <br>
+                .then( text => console.log(text) )</code>
+            </div><br>
+            <li><code>blob()</code>: used to read a file of raw data, 
+                such as an image or a spreadsheet. Once it has read the whole file, 
+                it returns a promise that resolves with a <b>blob object.</b></li>
+            <div class="code" style="max-width: 400px">
+                <code>fetch(url)<br>
+                    .then( response => response.blob() ); <br>
+                    .then( text => console.log(blob.type) )</code>
+            </div><br>
+            <li><code>json()</code>: used to transform a stream of JSON data into a 
+                promise that resolves to a <b>JavaScript object.</b></li>
+            <div class="code" style="max-width: 400px">
+                <code>fetch(url)<br>
+                    .then( response => response.json() ); <br>
+                    .then( text => console.log(Object.entries(data))</code>
+            </div><br>
+            <div class="code" style="max-width: 400px">
+                <code>fetch(url)<br>
+                    .then( response => response.blob() ); <br>
+                    .then( text => console.log(blob.type) )</code>
+            </div><br>
+        </ul>
+        <br> We can even create Responses and Request objects by ourselves:
+        <div class="code">
+            <code>const response = new Response( 'Hello!', {<br>
+                &nbsp&nbsp&nbspok: true,<br>
+                &nbsp&nbsp&nbspstatus: 200,<br>
+                &nbsp&nbsp&nbspstatusText: 'OK',<br>
+                &nbsp&nbsp&nbsptype: 'cors',<br>
+                &nbsp&nbsp&nbspurl: '/api'<br>
+            });
+            <br><br>
+            const request = new Request('https://example.com/data', {<br>
+                &nbsp&nbsp&nbspmethod: 'GET',<br>
+                &nbsp&nbsp&nbspmode: 'cors',<br>
+                &nbsp&nbsp&nbspredirect: 'follow',<br>
+                &nbsp&nbsp&nbspcache: 'no-cache'<br>
+            });</code>
+        </div><br>
+        For the Response object, the first argument is the data that is to be returned 
+        (for example a text stream, file or JSON data). The second argument 
+        is an object that can be used to provide values for any of the properties listed.
+        For the Requast object, the url property is the first argument, and is required. 
+        The second argument is an object made up of any of the other properties listed above.
+        <br><br>
+        Once the Request object is assigned to a variable, it can then be used as the 
+        parameter of the fetch() method.
+    </p>
+    <h3>Headers Interface</h3>
+    <p>HTTP headers are <b>objects</b> used to pass on additional information about a request 
+        or response, for instance, the file-type of the resource, cookie information, 
+        authentication information and when the resource was last modified. <b>They can be passed as
+        parameters to create Request objects.</b> They include the following properties and methods:
+        <ul>
+            <li><code>has()</code></li>
+            <li><code>get()</code></li>
+            <li><code>set()</code></li>
+            <li><code>append()</code></li>
+            <li><code>delete()</code></li>
+            <li><code>keys(), values(), entries()</code> - Iterators that can be used to iterate 
+                over the headers key, values or entries (key and value pairs).</li>
+        </ul>
+    </p>
+</div>
