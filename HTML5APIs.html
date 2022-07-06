@@ -6,7 +6,7 @@
         <meta name="description" 
             content="Notes about HTML5 APIs">
 
-        <title>🌸 Andrea Brenzink Portfolio - HTML5 APIs🌸</title>
+        <title>🌸 HTML5 APIs - Andrea Brenzink Portfolio 🌸</title>
         <link rel = "stylesheet"
               type = "text/css"
               href = "./css/small.css" />
@@ -41,10 +41,44 @@
                     The values of the attributes can also be used to filter different elements.
                      For example, we could find all the elements that have a data-rating value of 3 or more.</p><br>
                 <div class="code">
-                <code>&ltdiv id='hero' data-powers='flight superSpeed'&gt<br>
-                    &nbsp&nbsp&nbsp&nbspSuperman<br>
-                    &lt/divglt<br></code>
-            </div>
+                    <code>&ltdiv id='hero' data-powers='flight superSpeed'&gt<br>
+                        &nbsp&nbsp&nbsp&nbspSuperman<br>
+                        &lt/div&gt<br></code>
+                </div><br>
+                <p>The data-powers attribute can be accessed using the following code:</p><br>
+                <div class="code">
+                    <code>const superman = document.getElementById('hero');<br>
+                        const powers = superman.dataset.powers;<br>
+                        &lt&lt 'flight superSpeed'<br></code>
+                </div><br>
+                <p><b>Remember the data- prefix is dropped!!!</b> To access the attribute, if a data- attribute’s name contains hyphens, 
+                    they are replaced with camel-case notation, so <b>data-max-length</b> would be accessed using <b>dataset.maxLength.</b></p>
+                    
+                <h3>HTML5 Web Storage</h3>
+                <p>The Web Storage API provides a key-value store on the client’s computer that is similar to using cookies but 
+                    has fewer restrictions, more storage capacity, and is generally easier to use. This makes it perfect for 
+                    <b>storing information about users and application-specific information to be used during future sessions.</b></p><br>
+                <ul>
+                    <li>Information stored is not shared with the server on every request.</li>
+                    <li>Information is available in multiple windows of the browser (if the domain is the same).</li>
+                    <li>Storage capacity limit is much larger. Most browsers have a limit set at 5GB per domain.</li>
+                    <li>Any data stored does not automatically expire as it does with cookies.</li>
+                </ul><br>
+                <p>If a browser supports the Web Storage API, the window object will have a property called localStorage, 
+                    which is a native object with a number of properties and methods used to store data. The information 
+                    is saved in the form of key-value pairs, and the values can only be strings. There is also a sessionStorage object 
+                    that works in the same way, although the data is only saved for the current session.</p><br>
+                <div class="code">
+                    <code>localStorage.setItem('name', 'Walter White');<br><br>
+                        localStorage.getItem('name');       <span class="coment">// use of methods to store information</span><br>
+                        &lt&lt "Walter White"<br><br>
+                        localStorage.name = 'Heisenberg'; <span class="coment">// using assignment instead of methods</span><br><br>
+                        console.log(localStorage.name); <br>
+                        &lt&lt "Heisenberg";<br>
+                    </code>
+                </div><br>
+                    
+            
             </div>
         </main>
        

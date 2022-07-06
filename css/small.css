@@ -16,7 +16,11 @@ nav ul li{
     color:rgb(243, 221, 255);
 }
 
-nav ul li a:visited{
+nav ul li a:link{
+    color: rgb(243, 221, 255);
+}
+
+a:visited{
     color: rgb(243, 221, 255);
 }
 
@@ -69,4 +73,8 @@ b{background-color: rgb(246, 233, 253);}
     text-align: center;
     padding: 7px;
     margin: 5px;
+}
+
+.coment{
+    color:rgb(161, 54, 255);
 }
