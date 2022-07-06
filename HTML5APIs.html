@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" 
+            content="Notes about HTML5 APIs">
+
+        <title>🌸 Andrea Brenzink Portfolio - HTML5 APIs🌸</title>
+        <link rel = "stylesheet"
+              type = "text/css"
+              href = "./css/small.css" />
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header id="my-header"></header>
+        <main>
+            <div class="notes">
+                <h2>HTML5 APIs</h2>
+                <h3>The data- Attribute</h3>
+                <p>The <b>data-</b> attribute is a way of embedding data in a web page using 
+                    custom attributes that are ignored by the browser. Those attricutes are private to 
+                    a page, so are not intended to be used by an external service. Their only purpose is to 
+                    be used by a JavaScript program. This means they’re perfect for adding data that 
+                    can be used to access information about a particular element on the page.</p><br>
+                <p>The names of these attributes can be decided by the developer, but they must use the following format:</p>
+                <ul>
+                    <li>Start with data-.</li>
+                    <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.</li>
+                    <li>Include an optional string value.</li>
+                </ul><br>
+                <div class="code">
+                    <code>data-powers = 'flight superSpeed'<br>
+                        data-rating = '5' <br>
+                        data-dropdown <br>
+                        data-user = 'DAZ' <br>
+                        data-max-length = '32'<br></code>
+                </div><br>
+                <p>The information contained in the attributes can be used to identify particular elements. 
+                    The values of the attributes can also be used to filter different elements.
+                     For example, we could find all the elements that have a data-rating value of 3 or more.</p><br>
+                <div class="code">
+                <code>&ltdiv id='hero' data-powers='flight superSpeed'&gt<br>
+                    &nbsp&nbsp&nbsp&nbspSuperman<br>
+                    &lt/divglt<br></code>
+            </div>
+            </div>
+        </main>
+       
+        <footer id="my-footer"></footer>
+    </body>
+</html>
