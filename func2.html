@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="description" 
+            content="Javascript Web Token Notes">
+
+        <title>🌸 Andrea Brenzink Portfolio - Functions, Execution Context and the Call Stack 🌸</title>
+        <link rel = "stylesheet"
+              type = "text/css"
+              href = "./css/small.css" />
+        <script src="js/main.js"></script>
+    </head>
+
+    <body>
+        <header id="my-header"></header>
+        <main>
+            <div class="notes">
+                <h2>Functions, Execution Context and the Call Stack</h2>
+                <h3>What does the computer do?</h3><br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/exrc_rLj5iw?start=128
+                &amp;clip=UgkxyTquoLhSpY0k75_eK49WRbZjZYaUKcLN&amp;clipt=ELegCBi_igk" title=
+                "YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+                 encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <p>There are two mains thing the computer does when it runs a code:
+                </p>
+                <ol>
+                    <li>Store stuff in the memory</li>
+                    <li>Saves a "path" to each part of the memory that will be storing info.</li>
+                </ol>
+                <h3>Synchronous execution</h3>
+                <p>When we go through the code line by line we go through it in order from top to bottom
+                    of our page and I never skip a line that means it is synchronous. Single threaded 
+                    means <b>one thing at a time.</b> I am not starting to execute a function
+                    and continuing to do that while simultaneously continuing down the rest of a 
+                    code at the same time. If I call a function my thread is not continuing
+                    down the code.</p>
+                <h3>Functions</h3>
+                <p>Functions are a way of wrapping up some instructions to be
+                    done later on. We give them a label. That saves us
+                    having to write all that code out again. So we just wrap it up 
+                    and give it a label, and then we refer to it later.</p>
+                <div class="code">
+                    <code>function multiplyBy2(num){<br>
+                        &nbsp&nbsp&nbsp&nbspconst result = num * 2;<br>
+                        &nbsp&nbsp&nbsp&nbspreturn result; <br>
+                        }<br></code>
+                </div>
+                <p>Remember the <b>parenthesis.</b> is the symbol that indicates there is some
+                work to be done, so that the computar knows it should look for a function
+                with the specific name and run any code stored in it. While executing lines inside
+                the function, the variable to store the result is <b>undefined.</b></p>
+
+            </div>
+        </main>
+       
+        <footer id="my-footer"></footer>
+    </body>
+</html>
