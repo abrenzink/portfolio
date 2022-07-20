@@ -109,3 +109,8 @@ b{background-color: rgb(246, 233, 253);}
 .coment{
     color:rgb(161, 54, 255);
 }
+
+#myLinks{
+    text-align: center;
+    list-style: none;
+}
