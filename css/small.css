@@ -44,7 +44,6 @@ html{
 nav ul li{
     display:inline-block;
     vertical-align: top;
-    color:rgb(243, 221, 255);
 }
 
 nav ul li a:link{
@@ -113,4 +112,12 @@ b{background-color: rgb(246, 233, 253);}
 #myLinks{
     text-align: center;
     list-style: none;
+    padding: 10px;
+}
+
+#myLinks li a {
+    display: inline-block;
+    color:rgb(243, 221, 255);
+    background-color: blueviolet;
+    margin: 10px;
 }
