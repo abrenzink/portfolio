@@ -1,9 +1,5 @@
 *{margin:0}
 
-p, h1, h2, li {
-    font-family: 'Architects Daughter', cursive;
-}
-
 header, footer {
     background-color: blueviolet;
     color: aliceblue;
