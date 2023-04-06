@@ -56,8 +56,6 @@ a:visited{
 
 h2{
     padding: 7px 0px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(43, 3, 78);
 }
 
 h3{
@@ -93,7 +91,6 @@ b{background-color: rgb(246, 233, 253);}
 
 #pagesList li {
     list-style: none;
-    background-color: blueviolet;
     color: rgb(255, 255, 255);
     font-size: 15px;
     min-width: 30px;
